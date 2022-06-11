@@ -1,11 +1,11 @@
-import discord # import all the libraries
+import discord
 import os
 import random
 import requests
 import keep_alive
 from keep_alive import keep_alive
 from discord.ext import commands
-from dislash import InteractionClient, Option, OptionType, OptionChoice, SelectMenu, SelectOption
+from dislash import InteractionClient, Option, OptionType, OptionChoice
 
 bot = commands.Bot(command_prefix = "!")
 keep_alive.user = "{0.user}".format(bot)
@@ -41,7 +41,7 @@ async def math(ctx, calculation = "1+1", secret = False):
 	embed.colour = discord.Color.orange()
 	embed.add_field(name = (eval(calculation)), value = f'is the answer to {calculation}', inline = False)
 	try: await ctx.send(embed = embed, ephemeral = secret)
-	except (SyntaxError, NameError) as e:
+	except (SyntaxError, NameError):
 		await ctx.send("There was an error in your requested calculation. Please make sure you have used a valid mathematical expression and that multiplication is signified with an asterix (*).", ephemeral = True)
 
 @client.slash_command(description = 'Invite To your Server!')
