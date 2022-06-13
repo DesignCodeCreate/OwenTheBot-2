@@ -16,7 +16,7 @@ class Fun(commands.Cog):
 	async def spam(self, ctx, string = "spam"):
 		string1 = string
 		for i in range(200):
-			string = f"{string}  {string1}"
+			string = f"{string} {string1}"
 		await ctx.send(string)
 	
 	@slash_command(description = 'Cat facts')
