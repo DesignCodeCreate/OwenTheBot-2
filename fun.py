@@ -12,11 +12,11 @@ class Fun(commands.Cog):
 	async def rickroll(self, ctx):
 		await ctx.send("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 	
-	@slash_command(description = "Spams!")
-	async def spam(self, ctx):
-		string = "spam"
+	@slash_command(description = "Spams the word you choose!", options = [Option("string", "Word", OptionType.STRING)])
+	async def spam(self, ctx, string = "Spam"):
+		string1 = string
 		for i in range(200):
-			string = string + " spam"
+			string = string + string1
 		await ctx.send(string)
 	
 	@slash_command(description = 'Cat facts')

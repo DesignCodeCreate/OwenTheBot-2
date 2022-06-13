@@ -42,9 +42,9 @@ class Info(commands.Cog):
 	    ]	
 	)
 	async def weather(self, ctx, option: str, city = "London"):
-		geo = requests.get(f"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={self.weatherkey}&units=metric").json()
+		geo = requests.get(f"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={self.weatherkey}").json()
 	
-		weather = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={geo[0].get('lat')}&lon={geo[0].get('lon')}&appid=" + self.weatherkey +"&units=metric").json()
+		weather = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={geo[0].get('lat')}&lon={geo[0].get('lon')}&appid={self.weatherkey}&units=metric").json()
 		icon = "http://openweathermap.org/img/wn/" + weather.get("weather")[0].get("icon") + "@2x.png"
 		
 		embed = discord.Embed()
