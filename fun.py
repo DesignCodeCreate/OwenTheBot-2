@@ -45,9 +45,10 @@ class Fun(commands.Cog):
 	async def emojisearch(self, ctx, findemoji = "", emojibg = ""):
 		spoiler1 = f"||{emojibg}||"
 		spoiler2 = f"||{emojibg}||"
-		for i in range(randint(0, 99)):
+		rand = randint(0, 99)
+		for i in range(rand):
 			spoiler1 = f"{spoiler1}||{emojibg}||"
-		for i in range(randint(0, 99)):
+		for i in range(200 - rand):
 			spoiler2 = f"{spoiler2}||{emojibg}||"
 		
 		await ctx.send(f"{spoiler1}||{findemoji}||{spoiler2}")

@@ -14,7 +14,6 @@ else:
 	guilds = []
 	for id in os.environ["guilds"].split(", "): guilds.append(int(id))
 	client = InteractionClient(bot, test_guilds = guilds)
-	print(guilds)
 
 # import cogs (groups of commands)
 from fun import Fun
