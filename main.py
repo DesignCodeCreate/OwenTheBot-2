@@ -8,7 +8,13 @@ from dislash import InteractionClient
 bot = commands.Bot(command_prefix = "!")
 keep_alive.user = "{0.user}".format(bot)
 hello_answers = ["Hello! :)", "Hi!", "What's up?", "Yo!"]
-client = InteractionClient(bot, test_guilds = [973967551904223232, 979061394869715005, 979089805080137788, 851082689699512360])
+
+if os.environ["guilds"] == "ALL": client = InteractionClient(bot)
+else:
+	guilds = []
+	for id in os.environ["guilds"].split(", "): guilds.append(int(id))
+	client = InteractionClient(bot, test_guilds = guilds)
+	print(guilds)
 
 # import cogs (groups of commands)
 from fun import Fun
