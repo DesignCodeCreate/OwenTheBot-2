@@ -13,10 +13,10 @@ class Fun(commands.Cog):
 		await ctx.send("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 	
 	@slash_command(description = "Spams the word you choose!", options = [Option("string", "Word", OptionType.STRING)])
-	async def spam(self, ctx, string = "Spam"):
+	async def spam(self, ctx, string = "spam"):
 		string1 = string
 		for i in range(200):
-			string = string + string1
+			string = f"{string}  {string1}"
 		await ctx.send(string)
 	
 	@slash_command(description = 'Cat facts')
